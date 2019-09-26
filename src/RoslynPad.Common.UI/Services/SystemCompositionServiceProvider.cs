@@ -14,14 +14,14 @@ namespace RoslynPad.UI
         {
             _host = host;
         }
-        
+
         public object GetService(Type serviceType)
         {
             return _host.GetExport(serviceType);
         }
     }
 
-    internal static class ServiceProviderExtensions
+    public static class ServiceProviderExtensions
     {
         public static T GetService<T>([NotNull] this IServiceProvider serviceProvider)
         {

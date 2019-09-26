@@ -7,7 +7,7 @@ using RoslynPad.UI;
 namespace RoslynPad
 {
     [Export(typeof(ITelemetryProvider)), Shared]
-    internal class TelemetryProvider : TelemetryProviderBase
+    public class TelemetryProvider : TelemetryProviderBase
     {
         public override void Initialize(string version, IApplicationSettings settings)
         {
@@ -21,7 +21,7 @@ namespace RoslynPad
             HandleException(args.Exception);
             args.Handled = true;
         }
-        
+
         protected override string GetInstrumentationKey() => ConfigurationManager.AppSettings["InstrumentationKey"];
     }
 }

@@ -13,7 +13,7 @@ namespace RoslynPad.Utilities
     /// <summary>
     /// Provides extension methods for <see cref="StackTrace"/>.
     /// </summary>
-    internal static class StackTraceExtensions
+    public static class StackTraceExtensions
     {
         private const string AtString = "at";
         private const string LineFormat = "in {0}:line {1}";

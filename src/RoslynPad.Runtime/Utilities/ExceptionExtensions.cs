@@ -9,13 +9,13 @@ namespace RoslynPad.Utilities
     /// <summary>
     /// Provides extension methods for <see cref="Exception"/>.
     /// </summary>
-    internal static class ExceptionExtensions
+    public static class ExceptionExtensions
     {
         private const string EndOfInnerExceptionStack = "--- End of inner exception stack trace ---";
         private const string AggregateExceptionFormatString = "{0}{1}---> (Inner Exception #{2}) {3}{4}{5}";
         private const string AsyncStackTraceExceptionData = "AsyncFriendlyStackTrace";
 
-        private static Func<Exception, string> GetStackTraceString => 
+        private static Func<Exception, string> GetStackTraceString =>
             ReflectionUtil.GenerateGetField<Exception, string>("_stackTraceString");
 
         private static readonly Func<Exception, string> GetRemoteStackTraceString =

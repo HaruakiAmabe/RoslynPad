@@ -6,7 +6,6 @@ using System.Composition;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
@@ -58,7 +57,7 @@ namespace RoslynPad.UI
 
         public IEnumerable<object> Results => _results;
 
-        internal ObservableCollection<IResultObject> ResultsInternal
+        public ObservableCollection<IResultObject> ResultsInternal
         {
             // ReSharper disable once UnusedMember.Local
             get => _results;
@@ -563,7 +562,7 @@ namespace RoslynPad.UI
             }
         }
 
-        internal void Initialize(DocumentId documentId,
+        public void Initialize(DocumentId documentId,
             Action<ExceptionResultObject?> onError,
             Func<TextSpan> getSelection, IDisposable viewDisposable)
         {

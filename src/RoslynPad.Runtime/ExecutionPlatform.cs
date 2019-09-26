@@ -16,7 +16,7 @@ namespace RoslynPad
         public bool IsDesktop { get; }
         public bool IsCore => !IsDesktop;
 
-        internal ExecutionPlatform(string name, string targetFrameworkMoniker, IReadOnlyList<PlatformVersion> versions, Architecture architecture, string hostPath, string hostArguments, bool isDesktop = false)
+        public ExecutionPlatform(string name, string targetFrameworkMoniker, IReadOnlyList<PlatformVersion> versions, Architecture architecture, string hostPath, string hostArguments, bool isDesktop = false)
         {
             Name = name;
             TargetFrameworkMoniker = targetFrameworkMoniker;
@@ -33,7 +33,7 @@ namespace RoslynPad
     [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
     public class PlatformVersion
     {
-        internal PlatformVersion(string targetFrameworkMoniker, string frameworkName, string frameworkVersion)
+        public PlatformVersion(string targetFrameworkMoniker, string frameworkName, string frameworkVersion)
         {
             TargetFrameworkMoniker = targetFrameworkMoniker;
             FrameworkName = frameworkName;

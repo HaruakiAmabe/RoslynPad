@@ -2,7 +2,7 @@
 
 namespace RoslynPad.UI
 {
-    internal interface IPlatformsFactory
+    public interface IPlatformsFactory
     {
         IEnumerable<ExecutionPlatform> GetExecutionPlatforms();
     }

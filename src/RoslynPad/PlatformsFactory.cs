@@ -1,19 +1,19 @@
 ﻿using System;
-using System.Composition;
 using System.Collections.Generic;
-using Microsoft.Win32;
-using RoslynPad.UI;
-using System.IO;
-using System.Runtime.InteropServices;
-using RoslynPad.Utilities;
-using NuGet.Versioning;
 using System.Collections.Immutable;
+using System.Composition;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using Microsoft.Win32;
+using NuGet.Versioning;
+using RoslynPad.UI;
+using RoslynPad.Utilities;
 
 namespace RoslynPad
 {
     [Export(typeof(IPlatformsFactory))]
-    internal class PlatformsFactory : IPlatformsFactory
+    public class PlatformsFactory : IPlatformsFactory
     {
         public IEnumerable<ExecutionPlatform> GetExecutionPlatforms()
         {
