@@ -9,7 +9,7 @@ using Microsoft.CodeAnalysis.PickMembers;
 
 namespace RoslynPad.Roslyn.LanguageServices.PickMembers
 {
-    internal class PickMembersDialogViewModel : NotificationObject
+    public class PickMembersDialogViewModel : NotificationObject
     {
         public List<MemberSymbolViewModel> MemberContainers { get; set; }
         public List<OptionViewModel> Options { get; set; }
@@ -22,7 +22,7 @@ namespace RoslynPad.Roslyn.LanguageServices.PickMembers
             Options = options.Select(o => new OptionViewModel(o)).ToList();
         }
 
-        internal void DeselectAll()
+        public void DeselectAll()
         {
             foreach (var memberContainer in MemberContainers)
             {
@@ -30,7 +30,7 @@ namespace RoslynPad.Roslyn.LanguageServices.PickMembers
             }
         }
 
-        internal void SelectAll()
+        public void SelectAll()
         {
             foreach (var memberContainer in MemberContainers)
             {
@@ -96,7 +96,7 @@ namespace RoslynPad.Roslyn.LanguageServices.PickMembers
                 {
                     return false;
                 }
-                
+
                 var index = SelectedIndex.Value;
                 return index > 0;
             }
@@ -110,13 +110,13 @@ namespace RoslynPad.Roslyn.LanguageServices.PickMembers
                 {
                     return false;
                 }
-                
+
                 var index = SelectedIndex.Value;
                 return index < MemberContainers.Count - 1;
             }
         }
 
-        internal void MoveUp()
+        public void MoveUp()
         {
             Debug.Assert(CanMoveUp);
             if (SelectedIndex == null) return;
@@ -125,7 +125,7 @@ namespace RoslynPad.Roslyn.LanguageServices.PickMembers
             Move(MemberContainers, index, delta: -1);
         }
 
-        internal void MoveDown()
+        public void MoveDown()
         {
             Debug.Assert(CanMoveDown);
             if (SelectedIndex == null) return;
@@ -143,7 +143,7 @@ namespace RoslynPad.Roslyn.LanguageServices.PickMembers
             SelectedIndex += delta;
         }
 
-        internal class MemberSymbolViewModel : NotificationObject
+        public class MemberSymbolViewModel : NotificationObject
         {
             public ISymbol MemberSymbol { get; }
 
@@ -173,7 +173,7 @@ namespace RoslynPad.Roslyn.LanguageServices.PickMembers
             public string MemberAutomationText => MemberSymbol.Kind + " " + MemberName;
         }
 
-        internal class OptionViewModel : NotificationObject
+        public class OptionViewModel : NotificationObject
         {
             public PickMembersOption Option { get; }
 

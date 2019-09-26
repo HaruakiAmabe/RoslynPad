@@ -273,7 +273,7 @@ namespace RoslynPad.Roslyn.QuickInfo
                 usageText: usageTextBuilder,
                 exceptionText: exceptionsTextBuilder);
         }
-        
+
         private IDeferredQuickInfoContent GetDocumentationContent(
             IEnumerable<ISymbol> symbols,
             IDictionary<SymbolDescriptionGroups, ImmutableArray<TaggedText>> sections,
@@ -455,7 +455,7 @@ namespace RoslynPad.Roslyn.QuickInfo
         }
     }
 
-    internal interface IDeferredQuickInfoContentProvider
+    public interface IDeferredQuickInfoContentProvider
     {
         IDeferredQuickInfoContent CreateQuickInfoDisplayDeferredContent(
             ISymbol symbol,
@@ -473,7 +473,7 @@ namespace RoslynPad.Roslyn.QuickInfo
         IDeferredQuickInfoContent CreateClassifiableDeferredContent(IList<TaggedText> content);
     }
 
-    internal interface IDeferredQuickInfoContent
+    public interface IDeferredQuickInfoContent
     {
         object Create();
     }

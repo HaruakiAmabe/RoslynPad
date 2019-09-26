@@ -34,7 +34,7 @@ namespace RoslynPad.Roslyn.LanguageServices.PickMembers
                 return new PickMembersResult(
                     viewModel.MemberContainers.Where(c => c.IsChecked)
                                               .Select(c => c.MemberSymbol)
-                                              .ToImmutableArray(), 
+                                              .ToImmutableArray(),
                     options);
             }
             else
@@ -44,7 +44,7 @@ namespace RoslynPad.Roslyn.LanguageServices.PickMembers
         }
     }
 
-    internal interface IPickMembersDialog : IRoslynDialog
+    public interface IPickMembersDialog : IRoslynDialog
     {
         string Title { get; set; }
     }

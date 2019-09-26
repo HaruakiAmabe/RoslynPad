@@ -9,7 +9,7 @@ using RoslynPad.Roslyn.Completion;
 namespace RoslynPad.Roslyn.QuickInfo
 {
     [Export(typeof(IDeferredQuickInfoContentProvider))]
-    internal class DeferredQuickInfoContentProvider : IDeferredQuickInfoContentProvider
+    public class DeferredQuickInfoContentProvider : IDeferredQuickInfoContentProvider
     {
         public IDeferredQuickInfoContent CreateQuickInfoDisplayDeferredContent(
             ISymbol symbol,
@@ -92,7 +92,7 @@ namespace RoslynPad.Roslyn.QuickInfo
 
                 return new QuickInfoDisplayPanel(
                     symbolGlyph as Control,
-                    warningGlyph as Control, 
+                    warningGlyph as Control,
                     (Control)_mainDescription.Create(),
                     (Control)_documentation.Create(),
                     (Control)_typeParameterMap.Create(),

@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace RoslynPad.Roslyn
 {
-    internal abstract class NotificationObject : INotifyPropertyChanged
+    public abstract class NotificationObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

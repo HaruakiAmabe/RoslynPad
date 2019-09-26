@@ -8,7 +8,7 @@ using Microsoft.CodeAnalysis;
 
 namespace RoslynPad.Roslyn.LanguageServices.ChangeSignature
 {
-    internal class ChangeSignatureDialogViewModel : NotificationObject
+    public class ChangeSignatureDialogViewModel : NotificationObject
     {
         private readonly ParameterConfiguration _originalParameterConfiguration;
 
@@ -96,7 +96,7 @@ namespace RoslynPad.Roslyn.LanguageServices.ChangeSignature
             }
         }
 
-        internal void Remove()
+        public void Remove()
         {
             if (_selectedIndex == null) return;
             AllParameters[_selectedIndex.Value].IsRemoved = true;
@@ -107,7 +107,7 @@ namespace RoslynPad.Roslyn.LanguageServices.ChangeSignature
             OnPropertyChanged(nameof(CanRestore));
         }
 
-        internal void Restore()
+        public void Restore()
         {
             if (_selectedIndex == null) return;
             AllParameters[_selectedIndex.Value].IsRemoved = false;
@@ -249,7 +249,7 @@ namespace RoslynPad.Roslyn.LanguageServices.ChangeSignature
             }
         }
 
-        internal void MoveUp()
+        public void MoveUp()
         {
             Debug.Assert(CanMoveUp);
             if (SelectedIndex == null) return;
@@ -259,7 +259,7 @@ namespace RoslynPad.Roslyn.LanguageServices.ChangeSignature
             Move(index < _parameterGroup1.Count ? _parameterGroup1 : _parameterGroup2, index < _parameterGroup1.Count ? index : index - _parameterGroup1.Count, -1);
         }
 
-        internal void MoveDown()
+        public void MoveDown()
         {
             Debug.Assert(CanMoveDown);
             if (SelectedIndex == null) return;
@@ -282,7 +282,7 @@ namespace RoslynPad.Roslyn.LanguageServices.ChangeSignature
             OnPropertyChanged(nameof(IsOkButtonEnabled));
         }
 
-        internal bool TrySubmit()
+        public bool TrySubmit()
         {
             return IsOkButtonEnabled;
         }

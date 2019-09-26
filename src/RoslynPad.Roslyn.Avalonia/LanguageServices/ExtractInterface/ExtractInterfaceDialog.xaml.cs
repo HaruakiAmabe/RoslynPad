@@ -1,14 +1,14 @@
-﻿using Avalonia.Controls;
+﻿using System.Composition;
+using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using System.Composition;
 
 namespace RoslynPad.Roslyn.LanguageServices.ExtractInterface
 {
     [Export(typeof(IExtractInterfaceDialog))]
-    internal partial class ExtractInterfaceDialog : Window, IExtractInterfaceDialog
+    public partial class ExtractInterfaceDialog : Window, IExtractInterfaceDialog
     {
         private ExtractInterfaceDialogViewModel _viewModel;
-        
+
         public string ExtractInterfaceDialogTitle => "Extract Interface";
         public string NewInterfaceName => "New Interface Name";
         public string GeneratedName => "Generated Name";

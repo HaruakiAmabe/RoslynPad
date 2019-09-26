@@ -1,7 +1,7 @@
-﻿using Avalonia.Controls;
+﻿using System.Composition;
+using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
-using System.Composition;
 
 namespace RoslynPad.Roslyn.LanguageServices.ChangeSignature
 {
@@ -9,7 +9,7 @@ namespace RoslynPad.Roslyn.LanguageServices.ChangeSignature
     /// Interaction logic for ChangeSignatureDialog.xaml
     /// </summary>
     [Export(typeof(IChangeSignatureDialog))]
-    internal partial class ChangeSignatureDialog : Window, IChangeSignatureDialog
+    public partial class ChangeSignatureDialog : Window, IChangeSignatureDialog
     {
         private ChangeSignatureDialogViewModel? _viewModel;
 

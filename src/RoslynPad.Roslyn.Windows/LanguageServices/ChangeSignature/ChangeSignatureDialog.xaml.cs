@@ -11,7 +11,7 @@ namespace RoslynPad.Roslyn.LanguageServices.ChangeSignature
     /// Interaction logic for ChangeSignatureDialog.xaml
     /// </summary>
     [Export(typeof(IChangeSignatureDialog))]
-    internal partial class ChangeSignatureDialog : IChangeSignatureDialog
+    public partial class ChangeSignatureDialog : IChangeSignatureDialog
     {
         private ChangeSignatureDialogViewModel _viewModel;
 

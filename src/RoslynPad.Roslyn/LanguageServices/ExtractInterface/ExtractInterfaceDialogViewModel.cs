@@ -9,13 +9,13 @@ using Glyph = RoslynPad.Roslyn.Completion.Glyph;
 
 namespace RoslynPad.Roslyn.LanguageServices.ExtractInterface
 {
-    internal enum InterfaceDestination
+    public enum InterfaceDestination
     {
         CurrentFile,
         NewFile
     }
 
-    internal class ExtractInterfaceDialogViewModel : NotificationObject
+    public class ExtractInterfaceDialogViewModel : NotificationObject
     {
         private readonly object _syntaxFactsService;
         private readonly List<string> _conflictingTypeNames;
@@ -46,7 +46,7 @@ namespace RoslynPad.Roslyn.LanguageServices.ExtractInterface
             MemberContainers = extractableMembers.Select(m => new MemberSymbolViewModel(m)).OrderBy(s => s.MemberName).ToList();
         }
 
-        internal bool TrySubmit()
+        public bool TrySubmit()
         {
             var trimmedInterfaceName = InterfaceName.Trim();
             var trimmedFileName = FileName.Trim();
@@ -91,7 +91,7 @@ namespace RoslynPad.Roslyn.LanguageServices.ExtractInterface
             //_notificationService.SendNotification(message, severity: NotificationSeverity.Information);
         }
 
-        internal void DeselectAll()
+        public void DeselectAll()
         {
             foreach (var memberContainer in MemberContainers)
             {
@@ -99,7 +99,7 @@ namespace RoslynPad.Roslyn.LanguageServices.ExtractInterface
             }
         }
 
-        internal void SelectAll()
+        public void SelectAll()
         {
             foreach (var memberContainer in MemberContainers)
             {
@@ -150,7 +150,7 @@ namespace RoslynPad.Roslyn.LanguageServices.ExtractInterface
             set => SetProperty(ref _fileName, value);
         }
 
-        internal class MemberSymbolViewModel : NotificationObject
+        public class MemberSymbolViewModel : NotificationObject
         {
             public ISymbol MemberSymbol { get; }
 

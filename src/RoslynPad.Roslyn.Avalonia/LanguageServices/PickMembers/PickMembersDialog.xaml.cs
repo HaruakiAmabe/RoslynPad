@@ -1,13 +1,13 @@
 ﻿// Copyright (c) Microsoft.  All Rights Reserved.  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information.
 
+using System.Composition;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using System.Composition;
 
 namespace RoslynPad.Roslyn.LanguageServices.PickMembers
 {
     [Export(typeof(IPickMembersDialog))]
-    internal partial class PickMembersDialog : Window, IPickMembersDialog
+    public partial class PickMembersDialog : Window, IPickMembersDialog
     {
         private PickMembersDialogViewModel _viewModel;
 
@@ -24,7 +24,7 @@ namespace RoslynPad.Roslyn.LanguageServices.PickMembers
         public string DeselectAll => "Deselect All";
         public string OK => "OK";
         public string Cancel => "Cancel";
-        
+
         [ImportingConstructor]
 #pragma warning disable CS8618 // Non-nullable field is uninitialized.
         public PickMembersDialog()
