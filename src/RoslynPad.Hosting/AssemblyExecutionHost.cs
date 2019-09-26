@@ -26,7 +26,7 @@ namespace RoslynPad.Hosting
     /// <summary>
     /// An <see cref="IExecutionHost"/> implementation that compiles scripts to disk as EXEs and executes them in their own process.
     /// </summary>
-    internal class AssemblyExecutionHost : IExecutionHost
+    public class AssemblyExecutionHost : IExecutionHost
     {
         private static readonly CSharpParseOptions _parseOptions = new CSharpParseOptions(preprocessorSymbols: new[] { "__DEMO__", "__DEMO_EXPERIMENTAL__" }, languageVersion: LanguageVersion.CSharp8, kind: SourceCodeKind.Script);
 

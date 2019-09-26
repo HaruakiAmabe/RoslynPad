@@ -60,7 +60,7 @@ namespace RoslynPad.Runtime
         }
     }
 
-    internal struct DumpQuotas
+    public struct DumpQuotas
     {
         internal const int DefaultMaxDepth = 5;
         internal const int DefaultMaxExpandedDepth = 1;
@@ -83,11 +83,11 @@ namespace RoslynPad.Runtime
         public static DumpQuotas Default { get; } = new DumpQuotas(DefaultMaxDepth, DefaultMaxExpandedDepth, DefaultMaxEnumerableLength, DefaultMaxStringLength);
 
         [Pure]
-        internal DumpQuotas StepDown() => 
+        internal DumpQuotas StepDown() =>
             new DumpQuotas(MaxDepth - 1, MaxExpandedDepth - 1, MaxEnumerableLength, MaxStringLength);
 
         [Pure]
-        internal DumpQuotas WithMaxDepth(int maxDepth) => 
+        internal DumpQuotas WithMaxDepth(int maxDepth) =>
             new DumpQuotas(maxDepth, MaxExpandedDepth, MaxEnumerableLength, MaxStringLength);
     }
 }

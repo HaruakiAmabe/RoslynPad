@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Collections.Immutable;
+﻿using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 
 namespace RoslynPad.Hosting
 {
-    internal class ExecutionHostParameters
+    public class ExecutionHostParameters
     {
         public ExecutionHostParameters(
             ImmutableArray<string> compileReferences,

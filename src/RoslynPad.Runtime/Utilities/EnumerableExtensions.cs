@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace RoslynPad.Utilities
 {
-    internal static class EnumerableExtensions
+    public static class EnumerableExtensions
     {
         public static int IndexOf<T>(this IEnumerable<T> enumerable, Func<T, bool> predicate)
         {

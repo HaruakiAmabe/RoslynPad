@@ -5,14 +5,14 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Text;
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text;
 using RoslynPad.Utilities;
 
 namespace RoslynPad.Runtime
 {
-    internal interface IResultObject
+    public interface IResultObject
     {
         string? Value { get; }
 
@@ -22,7 +22,7 @@ namespace RoslynPad.Runtime
     [DataContract]
     [KnownType(typeof(ExceptionResultObject))]
     [SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Local")]
-    internal class ResultObject : INotifyPropertyChanged, IResultObject
+    public class ResultObject : INotifyPropertyChanged, IResultObject
     {
         private static readonly HashSet<string> _irrelevantEnumerableProperties = new HashSet<string>
             { "Count", "Length", "Key" };
@@ -475,7 +475,7 @@ namespace RoslynPad.Runtime
 
     [DataContract]
     [SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Local")]
-    internal class ExceptionResultObject : ResultObject
+    public class ExceptionResultObject : ResultObject
     {
         // for serialization
         // ReSharper disable once UnusedMember.Local
@@ -510,7 +510,7 @@ namespace RoslynPad.Runtime
 
     [DataContract]
     [SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Local")]
-    internal class CompilationErrorResultObject : IResultObject
+    public class CompilationErrorResultObject : IResultObject
     {
         // for serialization
         // ReSharper disable once UnusedMember.Local

@@ -2,5 +2,4 @@
 
 [assembly: InternalsVisibleTo("RoslynPad")]
 [assembly: InternalsVisibleTo("RoslynPad.Roslyn")]
-[assembly: InternalsVisibleTo("RoslynPad.Common.UI")]
 [assembly: InternalsVisibleTo("RoslynPad.Hosting")]

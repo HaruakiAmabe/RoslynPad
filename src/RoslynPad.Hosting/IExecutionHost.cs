@@ -6,7 +6,7 @@ using RoslynPad.Runtime;
 
 namespace RoslynPad.Hosting
 {
-    internal interface IExecutionHost : IDisposable
+    public interface IExecutionHost : IDisposable
     {
         ExecutionPlatform Platform { get; set; }
         PlatformVersion PlatformVersion { get; set; }
