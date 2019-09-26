@@ -10,11 +10,11 @@ namespace RoslynPad
         public string TargetFrameworkMoniker { get; }
         public IReadOnlyList<PlatformVersion> Versions { get; }
         public bool HasVersions => Versions.Count > 0;
-        internal Architecture Architecture { get; }
-        internal string HostPath { get; }
+        public Architecture Architecture { get; }
+        public string HostPath { get; }
         internal string HostArguments { get; }
         public bool IsDesktop { get; }
-        internal bool IsCore => !IsDesktop;
+        public bool IsCore => !IsDesktop;
 
         internal ExecutionPlatform(string name, string targetFrameworkMoniker, IReadOnlyList<PlatformVersion> versions, Architecture architecture, string hostPath, string hostArguments, bool isDesktop = false)
         {
@@ -41,7 +41,7 @@ namespace RoslynPad
         }
 
         public string TargetFrameworkMoniker { get; }
-        internal string FrameworkName { get; }
+        public string FrameworkName { get; }
         public string FrameworkVersion { get; }
 
         public override string ToString() => FrameworkVersion;
