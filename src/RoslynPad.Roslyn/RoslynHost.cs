@@ -1,9 +1,4 @@
-﻿using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Mef;
-using RoslynPad.Roslyn.Diagnostics;
-using System;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -12,6 +7,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Formatting;
+using Microsoft.CodeAnalysis.Host;
+using Microsoft.CodeAnalysis.Host.Mef;
+using RoslynPad.Roslyn.Diagnostics;
 
 namespace RoslynPad.Roslyn
 {
@@ -25,13 +26,12 @@ namespace RoslynPad.Roslyn
         internal static readonly ImmutableArray<Assembly> DefaultCompositionAssemblies =
             ImmutableArray.Create(
                 // Microsoft.CodeAnalysis.Workspaces
-                typeof(WorkspacesResources).Assembly,
+                typeof(WorkspaceKind).Assembly,
                 // Microsoft.CodeAnalysis.CSharp.Workspaces
-                typeof(CSharpWorkspaceResources).Assembly,
+                typeof(CSharpFormattingOptions).Assembly,
                 // Microsoft.CodeAnalysis.Features
-                typeof(FeaturesResources).Assembly,
-                // Microsoft.CodeAnalysis.CSharp.Features
-                typeof(CSharpFeaturesResources).Assembly,
+                typeof(TextTags).Assembly,
+                Assembly.Load("Microsoft.CodeAnalysis.CSharp.Features"),
                 // RoslynPad.Roslyn
                 typeof(RoslynHost).Assembly);
 
